@@ -4,6 +4,9 @@ const playerX = document.querySelector('.player1');
 const playerO = document.querySelector('.player2');
 
 const gameWinner = document.querySelector('.winner');
+const btnRestart = document.querySelector('#reset');
+
+const boxes = document.querySelectorAll('.box');
 
 const horizontal1 = document.querySelectorAll('.horizontal1');
 const horizontal2 = document.querySelectorAll('.horizontal2');
@@ -16,7 +19,7 @@ const vertical3 = document.querySelectorAll('.vertical3');
 const diagonal1 = document.querySelectorAll('.diagonal1');
 const diagonal2 = document.querySelectorAll('.diagonal2');
 
-document.querySelectorAll('.box').forEach(box =>
+boxes.forEach(box =>
   box.addEventListener('click', function () {
     let currentPlayer = playerX.classList.contains('active') ? 'X' : 'O';
 
@@ -63,3 +66,18 @@ function checkWin() {
     playerO.classList.add('winner-color');
   }
 }
+
+btnRestart.addEventListener('click', function () {
+  boxes.forEach(box => {
+    box.textContent = '';
+    box.classList.remove('disabled');
+
+    gameWinner.textContent = '';
+
+    playerX.classList.add('active');
+    playerO.classList.remove('active');
+
+    playerX.classList.remove('winner-color');
+    playerO.classList.remove('winner-color');
+  });
+});
