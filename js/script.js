@@ -19,6 +19,26 @@ const vertical3 = document.querySelectorAll('.vertical3');
 const diagonal1 = document.querySelectorAll('.diagonal1');
 const diagonal2 = document.querySelectorAll('.diagonal2');
 
+const choosePlayerBox = document.querySelector('.choosePlayer');
+const playerBtns = document.querySelectorAll('.choosePlayer > button');
+const overlay = document.querySelector('.overlay');
+
+function choosePlayer() {
+  choosePlayerBox.classList.add('active');
+  overlay.classList.add('active');
+
+  playerBtns.forEach(btn =>
+    btn.addEventListener('click', function () {
+      this.textContent == 'X'
+        ? playerX.classList.add('active')
+        : playerO.classList.add('active');
+      choosePlayerBox.classList.remove('active');
+      overlay.classList.remove('active');
+    })
+  );
+}
+choosePlayer();
+
 boxes.forEach(box =>
   box.addEventListener('click', function () {
     let currentPlayer = playerX.classList.contains('active') ? 'X' : 'O';
@@ -71,13 +91,15 @@ btnRestart.addEventListener('click', function () {
   boxes.forEach(box => {
     box.textContent = '';
     box.classList.remove('disabled');
-
-    gameWinner.textContent = '';
-
-    playerX.classList.add('active');
-    playerO.classList.remove('active');
-
-    playerX.classList.remove('winner-color');
-    playerO.classList.remove('winner-color');
   });
+
+  gameWinner.textContent = '';
+
+  playerX.classList.remove('winner-color');
+  playerO.classList.remove('winner-color');
+
+  playerX.classList.remove('active');
+  playerO.classList.remove('active');
+
+  choosePlayer();
 });

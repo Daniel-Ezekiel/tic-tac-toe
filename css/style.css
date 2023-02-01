@@ -63,6 +63,7 @@ h1 {
 
 button {
   padding: 1.2rem 2.5rem;
+  border: 0.2rem solid #0f0f0f;
   border-radius: 5rem;
   appearance: none;
   background-color: rgba(0, 0, 0, 0.3);
@@ -108,4 +109,45 @@ h2 {
 
 .winner-color {
   background-color: rgba(4, 211, 21, 0.945);
+}
+
+.choosePlayer {
+  display: none;
+}
+
+.choosePlayer.active {
+  background-color: #c1fcd3;
+  border-radius: 1.5rem;
+  padding: 10rem 0;
+  box-shadow: 0 3rem 5rem rgb(0 0 0 / 25%);
+  backdrop-filter: blur(1000px);
+  filter: blur();
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+
+  z-index: 1;
+}
+
+.overlay.active {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.5rem);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.choosePlayer h2 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
 }
