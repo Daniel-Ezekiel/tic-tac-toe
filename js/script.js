@@ -88,6 +88,9 @@ function checkWin() {
     playerO.classList.add('winner-color');
     gameContainer.classList.add('disabled');
   }
+
+  if (Array.from(boxes).every(box => box.textContent))
+    gameWinner.textContent = `TIE! Play again! 🔄`;
 }
 
 btnRestart.addEventListener('click', function () {
