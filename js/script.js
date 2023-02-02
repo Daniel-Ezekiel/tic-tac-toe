@@ -6,6 +6,7 @@ const playerO = document.querySelector('.player2');
 const gameWinner = document.querySelector('.winner');
 const btnRestart = document.querySelector('#reset');
 
+const gameContainer = document.querySelector('.game-container');
 const boxes = document.querySelectorAll('.box');
 
 const horizontal1 = document.querySelectorAll('.horizontal1');
@@ -72,6 +73,7 @@ function checkWin() {
   ) {
     playerX.classList.add('winner-color');
     gameWinner.textContent = `Player X wins! 🏆`;
+    gameContainer.classList.add('disabled');
   } else if (
     Array.from(horizontal1).every(e => e.textContent == 'O') ||
     Array.from(horizontal2).every(e => e.textContent == 'O') ||
@@ -84,6 +86,7 @@ function checkWin() {
   ) {
     gameWinner.textContent = `Player 0 wins! 🏆`;
     playerO.classList.add('winner-color');
+    gameContainer.classList.add('disabled');
   }
 }
 
@@ -100,6 +103,8 @@ btnRestart.addEventListener('click', function () {
 
   playerX.classList.remove('active');
   playerO.classList.remove('active');
+
+  gameContainer.classList.remove('disabled');
 
   choosePlayer();
 });
