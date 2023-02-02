@@ -61,6 +61,10 @@ boxes.forEach(box =>
 );
 
 function checkWin() {
+  if (Array.from(boxes).every(box => box.textContent)) {
+    gameWinner.textContent = `TIE! Play again! 🔄`;
+  }
+
   if (
     Array.from(horizontal1).every(e => e.textContent == 'X') ||
     Array.from(horizontal2).every(e => e.textContent == 'X') ||
@@ -88,9 +92,6 @@ function checkWin() {
     playerO.classList.add('winner-color');
     gameContainer.classList.add('disabled');
   }
-
-  if (Array.from(boxes).every(box => box.textContent))
-    gameWinner.textContent = `TIE! Play again! 🔄`;
 }
 
 btnRestart.addEventListener('click', function () {
