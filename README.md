@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 
-## Demo Url: <a href="https://tic-tac-toe-v1.vercel.app/">Play TicTacToe</a>
+## Demo Url: <a href="https://tic-tac-toe-v1.vercel.app/">Play Game</a>
 
 ![](https://github.com/Daniel-Ezekiel/Tic-Tac-Toe/blob/main/preview.png)
 
